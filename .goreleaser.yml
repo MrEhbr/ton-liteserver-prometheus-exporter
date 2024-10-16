@@ -1,0 +1,70 @@
+version: 2
+env:
+  - DOCKER_IMAGE={{ if index .Env "DOCKER_IMAGE"  }}{{ .Env.DOCKER_IMAGE }}{{ else }}mrehbr/ton-liteserver-prometheus-exporter{{ end }}
+before:
+  hooks:
+    - go mod download
+builds:
+  - goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+    flags:
+      - "-a"
+    ldflags:
+      - '-extldflags "-static"'
+      - -s -w  
+    env:
+      - CGO_ENABLED=0
+    main: ./cmd/ton-liteserver-prometheus-exporter/main.go
+    binary: ton-liteserver-prometheus-exporter
+
+dockers:
+  - use: buildx
+    goos: linux
+    goarch: amd64
+    dockerfile: Dockerfile
+    image_templates:
+      - "{{ .Env.DOCKER_IMAGE }}:latest-amd64"
+      - "{{ .Env.DOCKER_IMAGE }}:{{ .Tag }}-amd64"
+      - "{{ .Env.DOCKER_IMAGE }}:{{ .Version }}-amd64"
+    build_flag_templates:
+      - "--platform=linux/amd64"
+  - use: buildx
+    goos: linux
+    goarch: arm64
+    dockerfile: Dockerfile
+    image_templates:
+      - "{{ .Env.DOCKER_IMAGE }}:latest-arm64"
+      - "{{ .Env.DOCKER_IMAGE }}:{{ .Tag }}-arm64"
+      - "{{ .Env.DOCKER_IMAGE }}:{{ .Version }}-arm64"
+    build_flag_templates:
+      - "--platform=linux/arm64"
+docker_manifests:
+  - name_template: "{{ .Env.DOCKER_IMAGE }}:{{ .Version }}"
+    image_templates:
+      - "{{ .Env.DOCKER_IMAGE }}:{{ .Version }}-amd64"
+      - "{{ .Env.DOCKER_IMAGE }}:{{ .Version }}-arm64"
+  - name_template: "{{ .Env.DOCKER_IMAGE }}:latest"
+    image_templates:
+      - "{{ .Env.DOCKER_IMAGE }}:latest-arm64"
+      - "{{ .Env.DOCKER_IMAGE }}:latest-amd64"
+source:
+  enabled: true
+archives:
+  - wrap_in_directory: true
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version}}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+checksum:
+  name_template: "checksums.txt"
+snapshot:
+  version_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
