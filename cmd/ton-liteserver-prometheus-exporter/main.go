@@ -64,7 +64,7 @@ func main() {
 			cancelInterrupt := make(chan struct{})
 			var g run.Group
 			{
-				prometheusListener, err := net.Listen("tcp", net.JoinHostPort("", c.String("TON_PROMETHEUS_EXPORTER_PORT")))
+				prometheusListener, err := net.Listen("tcp", net.JoinHostPort("", c.String("port")))
 				if err != nil {
 					return fmt.Errorf("failed to listen: %w", err)
 				}
