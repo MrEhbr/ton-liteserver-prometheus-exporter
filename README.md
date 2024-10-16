@@ -1,7 +1,6 @@
 # TON LiteServer Prometheus Exporter
 
 ![License](https://img.shields.io/github/license/MrEhbr/ton-liteserver-prometheus-exporter)
-![Release](https://img.shields.io/github/v/release/MrEhbr/ton-liteserver-prometheus-exporter)
 [![Go](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/actions/workflows/go.yml/badge.svg)](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/actions/workflows/go.yml)
 [![GitHub release](https://img.shields.io/github/release/MrEhbr/ton-liteserver-prometheus-exporter.svg)](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/releases)
 ![Made by Alexey Burmistrov](https://img.shields.io/badge/made%20by-Alexey%20Burmistrov-blue.svg?style=flat)
