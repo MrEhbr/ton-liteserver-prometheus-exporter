@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/compare/v1.0.0...v1.0.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* use correct flag for port ([aed282e](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/commit/aed282e6d9649c7cda7600230d3430b2b2ac57b5))
+
 # 1.0.0 (2024-10-16)
 
 
