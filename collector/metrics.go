@@ -89,7 +89,7 @@ var Metrics = []MetricDef{
 			if m.ElectionStatus != "" {
 				return 1, []string{m.ElectionStatus}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 
@@ -114,7 +114,7 @@ var Metrics = []MetricDef{
 			if m.AdnlAddress != "" {
 				return 1, []string{m.AdnlAddress}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{
@@ -127,7 +127,7 @@ var Metrics = []MetricDef{
 			if m.WalletAddress != "" {
 				return 1, []string{m.WalletAddress}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{
@@ -150,7 +150,7 @@ var Metrics = []MetricDef{
 			if m.MytoncoreStatus != "" {
 				return 1, []string{m.MytoncoreStatus}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{
@@ -173,7 +173,7 @@ var Metrics = []MetricDef{
 			if m.LocalValidatorStatus != "" {
 				return 1, []string{m.LocalValidatorStatus}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{
@@ -226,7 +226,7 @@ var Metrics = []MetricDef{
 			if m.VersionMytonctrl != "" {
 				return 1, []string{m.VersionMytonctrl}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{
@@ -239,7 +239,7 @@ var Metrics = []MetricDef{
 			if m.VersionValidator != "" {
 				return 1, []string{m.VersionValidator}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 
@@ -254,7 +254,7 @@ var Metrics = []MetricDef{
 			if m.ConfiguratorAddress != "" {
 				return 1, []string{m.ConfiguratorAddress}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{
@@ -267,7 +267,7 @@ var Metrics = []MetricDef{
 			if m.ElectorAddress != "" {
 				return 1, []string{m.ElectorAddress}
 			}
-			return 0, nil
+			return 0, []string{"unknown"}
 		},
 	},
 	{

@@ -95,7 +95,8 @@ func main() {
 		},
 		Commands: []*cli.Command{
 			{
-				Name: "print",
+				Name:  "print",
+				Usage: "Print metrics to stdout",
 				Action: func(c *cli.Context) error {
 					parser := collector.NewParser()
 					metrics, err := parser.Parse()
