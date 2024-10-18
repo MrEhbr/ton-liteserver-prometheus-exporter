@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/compare/v1.0.1...v1.0.2) (2024-10-18)
+
+
+### Bug Fixes
+
+* **metrics:** handle missing labels with "unknown" ([f267038](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/commit/f267038cac7d23e711e0f695099558148582ec82))
+
 ## [1.0.1](https://github.com/MrEhbr/ton-liteserver-prometheus-exporter/compare/v1.0.0...v1.0.1) (2024-10-16)
 
 
